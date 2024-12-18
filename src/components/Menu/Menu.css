@@ -1,0 +1,25 @@
+@import "../../styles/globalVariable.css";
+
+.menu .item{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.menu .item .title{
+    font-size: 12px;
+    font-weight: 200;
+    color: var(--main-color);
+    
+}
+.menu .item .listItem{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    &:hover{
+        background-color: var(--soft-bg);
+        color: var(--main-color);
+    }
+
+}
