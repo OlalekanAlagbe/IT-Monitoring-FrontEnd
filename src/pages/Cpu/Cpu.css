@@ -1,0 +1,89 @@
+/* General Styles */
+.cpu-dashboard {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    max-width: 100%;
+    border: 2px solid red;
+  }
+  
+  .dashboard-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  /* Section Styles */
+  .section {
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    color: #444;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    h2{
+        font-size: 12px;
+        font-weight: bold;
+    }
+    p{
+        font-size: 12px;
+    }
+  }
+  
+  .dashboard-container{
+    display: flex;
+    gap: 20px;
+  }
+  /* Different background colors for sections */
+  .overall-averages {
+    background-color: #f4f4f8;
+  }
+  
+  .server-1 {
+    background-color: #e9f7ef;
+  }
+  
+  .server-2 {
+    background-color: #fff3cd;
+  }
+  
+  .server-3 {
+    background-color: #f8d7da;
+  }          
+  .server-4 {
+    background-color: #bc9bae;
+  }          
+  .server-5 {
+    background-color: #a69fa4;
+  }          
+  
+  /* Title Styles */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #007bff;
+  }
+  
+  /* Icon Styles */
+  .icon {
+    color: inherit; /* Inherits the color of the title */
+    width: 24px;
+    height: 24px;
+  }
+  
+  .charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 20px;
+  }
+  
+  @media (min-width: 1536px) {
+    .charts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .line{
+        grid-column: span 2;
+    }
+  }

@@ -62,7 +62,7 @@
 
 import Home from "./pages/Home/Home"
 import {createBrowserRouter,RouterProvider,Route,Link,Outlet} from "react-router-dom"
-import Users from "./pages/Users/Users"
+import Cpu from "./pages/Cpu/Cpu"
 import Products from "./pages/Products/Products"
 import Navbar from "./components/Navbar/Navbar"
 import Footer from "./components/Footer/Footer"
@@ -70,6 +70,7 @@ import Menu from "./components/Menu/Menu"
 import Login from "./pages/Login/Login"
 import './styles/global.css'
 import CreateAccount from "./pages/CreateAccount/CreateAccount"
+import ServerMemory from "./pages/ServerMemory/ServerMemory"
 function App() {
 
   const Layout = () => {
@@ -99,12 +100,16 @@ function App() {
           element:<Home/>
         },
         {
-          path:'/users',
-          element:<Users/>
+          path:'/cpu',
+          element:<Cpu/>
         },
         {
           path:'/products',
           element:<Products/>
+        },
+        {
+          path:'/server-memory',
+          element:<ServerMemory/>
         }
       ]
     },

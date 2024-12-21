@@ -23,8 +23,8 @@ export const menu = [
     listItems: [
       {
         id: 1,
-        title: "Users",
-        url: "/users",
+        title: "CPU",
+        url: "/cpu",
         icon: "user.svg",
       },
       {
@@ -35,8 +35,8 @@ export const menu = [
       },
       {
         id: 3,
-        title: "Orders",
-        url: "/",
+        title: "Server Memory MGT",
+        url: "/server-memory",
         icon: "order.svg",
       },
       {

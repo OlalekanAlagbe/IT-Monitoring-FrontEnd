@@ -1,0 +1,56 @@
+.metricCard-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap; /* Allows cards to wrap to the next row */
+}
+
+.metricCard {
+  flex: 1 1 calc(20% - 30px); /* 5 cards per row by default */
+  box-sizing: border-box;
+  /* Add additional styles for your cards here */
+}
+
+/* Media Queries */
+
+/* For screens smaller than 1200px (4 cards per row) */
+@media (max-width: 1200px) {
+  .metricCard {
+    flex: 1 1 calc(25% - 30px); /* 4 cards per row */
+  }
+}
+
+/* For screens smaller than 992px (3 cards per row) */
+@media (max-width: 992px) {
+  .metricCard {
+    flex: 1 1 calc(33.33% - 30px); /* 3 cards per row */
+  }
+}
+
+/* For screens smaller than 768px (2 cards per row) */
+@media (max-width: 768px) {
+  .metricCard {
+    flex: 1 1 calc(50% - 30px); /* 2 cards per row */
+  }
+}
+
+/* For screens smaller than 576px (1 card per row) */
+@media (max-width: 576px) {
+  .metricCard {
+    flex: 1 1 100%; /* 1 card per row */
+  }
+}
+
+.double-line-chart{
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+}
+
+
+/* For screens smaller than 992px (3 cards per row) */
+@media (max-width: 992px) {
+  .double-line-chart{
+    grid-template-columns: auto;
+  }
+}

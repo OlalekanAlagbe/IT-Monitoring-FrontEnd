@@ -1,0 +1,29 @@
+.traffic-chart {
+    /* width: 100%;
+    max-width: 64rem;
+    margin: 0 auto; */
+  }
+  
+  .traffic-chart__container {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    padding: 1.5rem;
+  }
+  
+  .traffic-chart__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+  }
+  
+  .traffic-chart__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 0;
+  }
+  
+   
