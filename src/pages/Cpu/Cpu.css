@@ -3,22 +3,24 @@
     font-family: Arial, sans-serif;
     margin: 0 auto;
     max-width: 100%;
-    border: 2px solid red;
+    /* border: 2px solid red; */
   }
   
   .dashboard-title {
     text-align: center;
-    margin-bottom: 30px;
-    color: #333;
+    margin-bottom: 10px;
+    color: white;
   }
   
   /* Section Styles */
   .section {
-    padding: 20px;
+    padding: 10px 20px;
     margin-bottom: 15px;
     border-radius: 8px;
     color: #444;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Add smooth transition for scaling */
+
     h2{
         font-size: 12px;
         font-weight: bold;
@@ -28,6 +30,10 @@
     }
   }
   
+  .section:hover {
+    /* Scale up slightly when hovered */
+    transform: scale(1.1);
+  }
   .dashboard-container{
     display: flex;
     gap: 20px;
@@ -37,8 +43,8 @@
     background-color: #f4f4f8;
   }
   
-  .server-1 {
-    background-color: #e9f7ef;
+  .current-server {
+    background-color: #fff3cd;
   }
   
   .server-2 {
@@ -74,16 +80,38 @@
   
   .charts-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 2fr 1fr;
     gap: 1.5rem;
-    margin-top: 20px;
   }
+  
   
   @media (min-width: 1536px) {
     .charts-grid {
-      grid-template-columns: repeat(2, 1fr);
+      /* grid-template-columns: repeat(2, 1fr); */
     }
     .line{
         grid-column: span 2;
     }
+  }
+
+  .navigation-buttons{
+    place-self: end;
+    margin-top: 20px;
+  }
+  .btn{
+    padding: 20px 50px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    background: none;
+    border: none;
+  }
+
+  .btn.btn-back{
+    margin-right: 20px;
+    background-color: rgba(108, 56, 56, 0.596);
+  }
+
+  .btn.btn-next{
+    background-color: rgb(9, 135, 93);
   }

@@ -1,8 +1,18 @@
+@import url('../../styles/globalVariable.css');
+
 .navbar{
     width: 100%;
-    padding: 20px;
+    /* height: 120px; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 50px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+    background-color: var(--white-color);
+    color: #DD4F05;
     .logo{
         display: flex;
         align-items: center;

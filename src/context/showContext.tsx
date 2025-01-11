@@ -1,38 +1,44 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { mockData, mockMetrics } from '../rawData/mockData'; // Adjust the path if necessary
+import { AccessLog } from '../types/AccessLog';
+import { SystemMetrics } from '../types/metrics';
 
-// Create the context
-export const ServerMemoryContext = createContext();
+// Define the shape of the context value
+interface DataContextProps {
+  accessLogs: AccessLog[];
+  systemMetrics: SystemMetrics;
+  setAccessLogs: React.Dispatch<React.SetStateAction<AccessLog[]>>;
+  setSystemMetrics: React.Dispatch<React.SetStateAction<SystemMetrics>>;
+}
 
-// Create the provider component
-export const ServerMemoryProvider = ({ children }) => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+// Create the context with an undefined initial value
+const DataContext = createContext<DataContextProps | undefined>(undefined);
 
-  // Fetch data from API
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:3000/api/server-memory-usage');
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const rawData = await response.json();
-        setData(rawData);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+// Provider component
+export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [accessLogs, setAccessLogs] = useState<AccessLog[]>(mockData);
+  const [systemMetrics, setSystemMetrics] = useState<SystemMetrics>(mockMetrics);
 
-    fetchData();
-  }, []);
+  // Debugging logs to verify the data is loaded correctly
+  // React.useEffect(() => {
+  //   console.log('Access Logs:', accessLogs);
+  //   console.log('System Metrics:', systemMetrics);
+  // }, [accessLogs, systemMetrics]);
 
-  // Provide context value
   return (
-    <ServerMemoryContext.Provider value={{ data, loading, error }}>
+    <DataContext.Provider value={{ accessLogs, systemMetrics, setAccessLogs, setSystemMetrics }}>
       {children}
-    </ServerMemoryContext.Provider>
+    </DataContext.Provider>
   );
+};
+
+// Custom hook to use the context
+export const useData = (): DataContextProps => {
+  const context = useContext(DataContext);
+  if (!context) {
+    throw new Error(
+      'useData must be used within a DataProvider. Ensure that your component is wrapped in the DataProvider.'
+    );
+  }
+  return context;
 };

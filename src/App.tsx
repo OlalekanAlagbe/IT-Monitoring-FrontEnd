@@ -1,82 +1,31 @@
-// import Home from "./pages/Home/Home"
-// import {createBrowserRouter,RouterProvider,Route,Link,Outlet} from "react-router-dom"
-// import Users from "./pages/Users/Users"
-// import Products from "./pages/Products/Products"
-// import Navbar from "./components/Navbar/Navbar"
-// import Footer from "./components/Footer/Footer"
-// import Menu from "./components/Menu/Menu"
-// import Login from "./pages/Login/Login"
-// import './styles/global.css'
-// import CreateAccount from "./pages/CreateAccount/CreateAccount"
-// function App() {
 
-//   const Layout = () => {
-//     return(
-//       <div className="main">
-//         <Navbar/>
-//         <div className="container">
-//           <div className="menuContainer">
-//             <Menu />
-//           </div>
-//           <div className="contentContainer">
-//             <Outlet />
-//           </div>
-//         </div>
-//         <Footer/>
-//       </div>
-//     )
-//   }
 
-//   const router = createBrowserRouter([
-//     {
-//       path:"/",
-//       element:<Layout />,
-//       children:[
-//         {
-//           path:'/',
-//           element:<Home/>
-//         },
-//         {
-//           path:'/users',
-//           element:<Users/>
-//         },
-//         {
-//           path:'/products',
-//           element:<Products/>
-//         }
-//       ]
-//     },
-//     {
-//       path:'login',
-//       element:<Login/>
-//     },
-//     {
-//       path:'create-account',
-//       element:<CreateAccount/>
-//     }
-//   ])
-//   return <RouterProvider router={router} />
-// }
+import Home from "./pages/Home/Home";
+import { createBrowserRouter, RouterProvider, Outlet, Navigate } from "react-router-dom";
+import Products from "./pages/Products/Products";
+import Navbar from "./components/Navbar/Navbar";
+import Menu from "./components/Menu/Menu";
+import Login from "./pages/Login/Login";
+import "./styles/global.css";
+import CreateAccount from "./pages/CreateAccount/CreateAccount";
+import UserLog from "./pages/UserLog/UserLog";
+import Monitoring from "./pages/Monitoring/Monitoring";
+import Alert from "./pages/Alert/Alert";
+import NewUser from "./pages/NewUser/NewUser";
+import Settings from "./pages/Settings/Settings";
+import Network from "./pages/Network/Network";
 
-// export default App
-
-import Home from "./pages/Home/Home"
-import {createBrowserRouter,RouterProvider,Route,Link,Outlet} from "react-router-dom"
-import Cpu from "./pages/Cpu/Cpu"
-import Products from "./pages/Products/Products"
-import Navbar from "./components/Navbar/Navbar"
-import Footer from "./components/Footer/Footer"
-import Menu from "./components/Menu/Menu"
-import Login from "./pages/Login/Login"
-import './styles/global.css'
-import CreateAccount from "./pages/CreateAccount/CreateAccount"
-import ServerMemory from "./pages/ServerMemory/ServerMemory"
 function App() {
+  const isAuthenticated = localStorage.getItem("token"); // Example: Check authentication status
+
+  const ProtectedRoute = ({ children }) => {
+    return isAuthenticated ? children : <Navigate to="/login" />;
+  };
 
   const Layout = () => {
-    return(
+    return (
       <div className="main">
-        <Navbar/>
+        <Navbar />
         <div className="container">
           <div className="menuContainer">
             <Menu />
@@ -85,44 +34,60 @@ function App() {
             <Outlet />
           </div>
         </div>
-        <Footer/>
+        {/* <Footer/> */}
       </div>
-    )
-  }
+    );
+  };
 
   const router = createBrowserRouter([
     {
-      path:"/",
-      element:<Layout />,
-      children:[
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/create-account",
+      element: <CreateAccount />,
+    },
+    {
+      element: <ProtectedRoute><Layout /></ProtectedRoute>, // Protect all nested routes
+      children: [
         {
-          path:'/',
-          element:<Home/>
+          path: "/",
+          element: <Home />,
         },
         {
-          path:'/cpu',
-          element:<Cpu/>
+          path: "/analytics",
+          element: <Products />,
         },
         {
-          path:'/products',
-          element:<Products/>
+          path: "/networks",
+          element: <Network />,
         },
         {
-          path:'/server-memory',
-          element:<ServerMemory/>
+          path: "/user-logs",
+          element: <UserLog />,
+        },
+        {
+          path: "/monitoring",
+          element: <Monitoring />,
+        },
+        {
+          path: "/alerts",
+          element: <Alert />
+        },
+        {
+          path: "/new-user",
+          element: <NewUser />
+        },
+        {
+          path: "/settings",
+          element: <Settings />
         }
-      ]
+      ],
     },
-    {
-      path:'login',
-      element:<Login/>
-    },
-    {
-      path:'create-account',
-      element:<CreateAccount/>
-    }
-  ])
-  return <RouterProvider router={router} />
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

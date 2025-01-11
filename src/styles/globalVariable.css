@@ -1,8 +1,8 @@
 :root {
     /* Background Colors */
     --main-bg: #FFF8E1; /* Light Cream Orange */
-    --soft-bg: #FFE0B2; /* Pale Orange */
-    --dark-bg: #F57C00; /* Deep Orange */
+    --white-color: #fff; /* White */
+    --gtb-red: #dd4f05; /* Deep Orange */
   
     /* Text Colors */
     --main-color: #212121; /* Dark Gray for readability */

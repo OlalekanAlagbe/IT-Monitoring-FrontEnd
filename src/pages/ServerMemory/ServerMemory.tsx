@@ -266,7 +266,7 @@ const ServerMemory = () => {
 
       // Check memory usage and send alert email
       checkMemoryUsageAndSendAlert();
-    }, 1000000000); // Update every 10 seconds
+    }, 10000000); // Update every 10 seconds
 
     return () => clearInterval(interval); // Clear interval on component unmount
   }, [currentIndex, serversData]);
