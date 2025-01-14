@@ -27,7 +27,7 @@ export function Dashboard() {
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center">
           <Activity className="w-6 h-6 mr-2" />
-          <h1 className="text-2xl font-bold">System Monitoring</h1>
+          <h1 className="text-lg font-bold">Server Monitoring</h1>
         </div>
       </div>
 

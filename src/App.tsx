@@ -14,6 +14,7 @@ import Alert from "./pages/Alert/Alert";
 import NewUser from "./pages/NewUser/NewUser";
 import Settings from "./pages/Settings/Settings";
 import Network from "./pages/Network/Network";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 
 function App() {
   const isAuthenticated = localStorage.getItem("token"); // Example: Check authentication status
@@ -47,6 +48,10 @@ function App() {
     {
       path: "/create-account",
       element: <CreateAccount />,
+    },
+    {
+      path: "/forgot-password",
+      element: <ForgotPassword />
     },
     {
       element: <ProtectedRoute><Layout /></ProtectedRoute>, // Protect all nested routes

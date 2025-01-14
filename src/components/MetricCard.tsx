@@ -33,7 +33,7 @@ export function MetricCard({
         {currentValue}
         {unit && <span className="text-sm text-gray-500 ml-1">{unit}</span>}
       </div>
-      <div className="h-48">
+      <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={[...data].reverse()}>
             <XAxis 
@@ -43,7 +43,7 @@ export function MetricCard({
               
             />
             <YAxis 
-              domain={[0, maxValue]}
+              // domain={[0, maxValue]}
               tick={{ fontSize: 10, fontWeight:"bold" }}
               width={30}
             />

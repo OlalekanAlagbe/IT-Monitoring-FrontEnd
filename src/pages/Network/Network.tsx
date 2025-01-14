@@ -22,7 +22,7 @@ export default function Network() {
 
   return (
     <main className="min-h-screen p-4">
-      <h1 className="text-2xl font-bold mb-4 flex items-center"> <BarChart2 className="w-8 h-8 text-black mr-2" /> Network Monitoring</h1>
+      <h1 className="text-lg font-bold mb-4 flex items-center"> <BarChart2 className="w-8 h-8 text-black mr-2" /> Network Monitoring</h1>
       <Dashboard data={data} />
     </main>
   )

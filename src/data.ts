@@ -19,7 +19,7 @@ export const menu = [
         id: 5,
         title: "Network Monitoring",
         url: "/networks",
-        icon: "iconAnalytics.png",
+        icon: "network.png",
       },
     ],
   },
@@ -59,12 +59,12 @@ export const menu = [
     id: 4,
     title: "Maintenance",
     listItems: [
-      {
-        id: 1,
-        title: "Create New User",
-        url: "/new-user",
-        icon: "iconNewUser.png",
-      }
+      // {
+      //   id: 1,
+      //   title: "Create New User",
+      //   url: "/new-user",
+      //   icon: "iconNewUser.png",
+      // }
     ],
   },
   {

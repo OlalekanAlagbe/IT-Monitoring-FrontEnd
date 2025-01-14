@@ -93,7 +93,7 @@ export default function AlertDashboard() {
           <div className="space-y-6 p-6">
             {selectedAlert.content}
 
-            <div className="flex space-x-2 pt-4">
+            {/* <div className="flex space-x-2 pt-4">
               <CustomButton variant="destructive">
                 Investigate
               </CustomButton>
@@ -103,7 +103,7 @@ export default function AlertDashboard() {
               <CustomButton variant="secondary">
                 Acknowledge
               </CustomButton>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

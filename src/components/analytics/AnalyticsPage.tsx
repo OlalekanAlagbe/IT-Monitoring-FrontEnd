@@ -419,15 +419,15 @@ import { servers } from '../../rawData/servers';
 import { DateRange } from '../../types/analytics';
 import { subWeeks } from 'date-fns';
 
-// const initialDateRange: DateRange = {
-//   startDate: subWeeks(new Date(), 1),
-//   endDate: new Date(),
-// };
-
 const initialDateRange: DateRange = {
-  startDate: new Date(2024, 11, 22), // December 22, 2023
-  endDate: new Date(2024, 11, 28),   // December 28, 2023
+  startDate: subWeeks(new Date(), 1),
+  endDate: new Date(),
 };
+
+// const initialDateRange: DateRange = {
+//   startDate: new Date(2024, 11, 22), // December 22, 2023
+//   endDate: new Date(2024, 11, 28),   // December 28, 2023
+// };
 
 const requestsColorScale = [
   '#f7fbff',
@@ -495,7 +495,7 @@ export function AnalyticsPage() {
   return (
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Servers Analytics</h1>
+        <h1 className="text-lg font-bold">Servers Analytics</h1>
         <div className="flex items-center space-x-4">
           <ServerSelector
             servers={servers}
@@ -540,11 +540,11 @@ export function AnalyticsPage() {
             aggregationType="sum"
           />
           <MetricsChart
-            title="Response Time"
+            title="Response Time(ms)"
             data={metrics}
             dataKey="responseTime"
             color="#10b981"
-            aggregationType="sum"
+            aggregationType="average"
           />
           <MetricsChart
             title="Errors"

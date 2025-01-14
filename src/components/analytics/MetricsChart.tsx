@@ -130,6 +130,8 @@ interface MetricsChartProps {
   aggregationType?: 'sum' | 'average'; // New prop to specify aggregation type
 }
 
+
+
 // Helper function to aggregate data by day and calculate sums or averages
 const aggregateDataByDay = (data: DailyMetrics[], aggregationType: 'sum' | 'average'): DailyMetrics[] => {
   const aggregatedData: { [key: string]: { sum: DailyMetrics; count: number } } = {};
@@ -176,6 +178,20 @@ const aggregateDataByDay = (data: DailyMetrics[], aggregationType: 'sum' | 'aver
 export function MetricsChart({ title, data, dataKey, dataKeys, colors, aggregationType = 'average' }: MetricsChartProps) {
   // Aggregate data by day and calculate sums or averages
   const aggregatedData = aggregateDataByDay(data, aggregationType);
+   // Helper function to round up the maximum value to the nearest specified base
+  const roundUpToNearest = (value: number, base: number): number => {
+  return Math.ceil(value / base) * base;
+};
+   // Calculate the maximum value for the y-axis
+   const maxValue = Math.max(
+    ...aggregatedData.map((entry) => entry[dataKey as keyof DailyMetrics] || 0)
+  );
+
+  // Round up the maximum value to the nearest 10, 100, or 1000 (you can adjust the base as needed)
+  const roundedMaxValue = roundUpToNearest(maxValue, 10);
+
+  // Set the y-axis domain
+  const yAxisDomain = [0, roundedMaxValue];
 
   return (
     <div className="text-black bg-white p-6 rounded-lg shadow">
@@ -188,7 +204,7 @@ export function MetricsChart({ title, data, dataKey, dataKeys, colors, aggregati
               tickFormatter={(value) => format(new Date(value), 'MM/dd')}
               tick={{ fontSize: 10, fontWeight: "bold", angle: 45, dy: 10 }}
             />
-            <YAxis />
+            <YAxis  />
             <Tooltip
               labelFormatter={(value) => format(new Date(value), 'MM/dd/yyyy')}
             />

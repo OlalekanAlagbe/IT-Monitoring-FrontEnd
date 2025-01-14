@@ -57,8 +57,8 @@ const UserLog = () => {
     <div className="min-h-screen py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center mb-4">
-          <Activity className="h-6 w-6 text-indigo-600 mr-2" />
-          <h1 className="text-2xl font-bold text-gray-900">User Access Log</h1>
+          <Activity className="h-6 w-6 text-black mr-2" />
+          <h1 className="text-lg font-bold text-gray-900">User Access Log</h1>
         </div>
 
         <div className="grid grid-cols-1 gap-4">

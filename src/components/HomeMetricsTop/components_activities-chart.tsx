@@ -24,7 +24,7 @@ export function ActivitiesChart({ metrics }: ActivitiesChartProps) {
       <div className="mb-4">
         <h2 className="text-lg font-semibold">Total Activities</h2>
       </div>
-      <div className="h-[200px] w-full">
+      <div className="h-[300px] w-full">
       <ResponsiveContainer width="100%" height="100%">
           <BarChart data={barData}>
             <CartesianGrid strokeDasharray="3 3" />

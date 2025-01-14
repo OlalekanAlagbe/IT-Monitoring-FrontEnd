@@ -38,7 +38,7 @@
 
 import React from 'react';
 import { BranchData } from '../../types/network';
-import { Clock, AlertTriangle } from 'lucide-react';
+import { Clock, AlertTriangle, BarChart } from 'lucide-react';
 
 interface AvailabilityMetricsProps {
   data: BranchData[];
@@ -61,10 +61,9 @@ const AvailabilityMetrics: React.FC<AvailabilityMetricsProps> = ({ data }) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h2 className="text-sm font-semibold text-gray-800 mb-4 flex items-center space-x-2">
-        {/* <Clock className="w-5 h-5 text-blue-600" /> */}
-        <span>Availability Metrics</span>
+        <BarChart className="w-4 h-4 text-teal-500" /> {/* Adjust size as needed */}
+        <span>Branch Availability Metrics</span>
       </h2>
-
       <div className="flex justify-between items-center">
         {/* Uptime Section */}
         <div className="flex items-center space-x-3">

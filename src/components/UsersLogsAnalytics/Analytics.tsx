@@ -35,7 +35,7 @@ export const Analytics: React.FC<AnalyticsProps> = ({ data }) => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="bg-white p-3 rounded-lg shadow">
         <h3 className="text-sm font-semibold mb-2">User Role Distribution</h3>
-        <div className="h-[180px]"> {/* Reduced height */}
+        <div className="h-64"> {/* Reduced height */}
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -60,7 +60,7 @@ export const Analytics: React.FC<AnalyticsProps> = ({ data }) => {
 
       <div className="bg-white p-3 rounded-lg shadow">
         <h3 className="text-sm font-semibold mb-2">Action Distribution</h3>
-        <div className="h-[180px]"> {/* Reduced height */}
+        <div className="h-64"> {/* Reduced height */}
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={barData}>
               <CartesianGrid strokeDasharray="3 3" />
