@@ -21,7 +21,7 @@ const UserLog = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [user, setUser] = useState(null);
-    const BASE_URL = 'http://localhost:3000'; // Ensure 'http://' is present
+    const BASE_URL = 'https://it-monitoingbackend.onrender.com'; // Ensure 'http://' is present
   
     // Fetch user data to determine if the user is an admin
     useEffect(() => {
