@@ -508,7 +508,7 @@ const SettingsComponent = () => {
   const [settingsSuccess, setSettingsSuccess] = useState('');
   const [isSettingsLoading, setIsSettingsLoading] = useState(false);
 
-  const BASE_URL = 'http://localhost:3000';
+  const BASE_URL = 'https://it-monitoingbackend.onrender.com';
 
   // Fetch user data when component mounts
   useEffect(() => {
