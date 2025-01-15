@@ -82,7 +82,7 @@ import React, { useState, useEffect } from 'react';
 import { Search, Sun, Moon, Cloud } from 'lucide-react';
 import './Navbar.css';
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://it-monitoingbackend.onrender.com';
 
 const Navbar = () => {
   const [user, setUser] = useState({ name: '' });
