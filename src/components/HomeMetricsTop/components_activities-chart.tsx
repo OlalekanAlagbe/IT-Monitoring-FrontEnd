@@ -10,12 +10,12 @@ interface ActivitiesChartProps {
 }
 const barData = [  
   { metric: 'Logout', value: 29 },
-  { metric: 'Access Payroll DB', value: 39 },
-  { metric: 'VPN Settings adjusted', value: 24 },
-  { metric: 'Access Financial Server', value: 22 },
-  { metric: 'Access Payroll', value: 41 },
-  { metric: 'Access HR Database', value: 28 },
-  { metric: 'Download Report', value: 35 }
+  { metric: 'Configuration Update', value: 39 },
+  { metric: 'System Backup', value: 24 },
+  { metric: 'Error Log Review', value: 22 },
+  { metric: 'Configuration Update', value: 41 },
+  { metric: 'Data Upload', value: 28 },
+  { metric: 'Data Retrieval', value: 35 }
 ]
 
 export function ActivitiesChart({ metrics }: ActivitiesChartProps) {

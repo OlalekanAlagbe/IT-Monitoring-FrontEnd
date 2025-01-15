@@ -36,10 +36,10 @@ export const FilterBar: React.FC<FilterBarProps> = ({ onFilterChange, filters })
         className="text-gray-800 px-4 py-2 border rounded-md"
       >
         <option value="">All Roles</option>
-        <option value="Admin">Admin</option>
-        <option value="Manager">Manager</option>
-        <option value="Funds Transfer">Funds Transfer</option>
-        <option value="Data Analyst">Data Analyst</option>
+        <option value="Database Manager">Database Manager</option>
+        <option value="Application Support Analyst">Application Support Analyst</option>
+        <option value="Q.A Engineer">Q.A Engineer</option>
+        <option value="Business Analyst">Business Analyst</option>
         <option value="IT Support">IT Support</option>
       </select>
 
@@ -64,9 +64,9 @@ export const FilterBar: React.FC<FilterBarProps> = ({ onFilterChange, filters })
         <option value="">All Actions</option>
         <option value="Login">Login</option>
         <option value="Logout">Logout</option>
-        <option value="Access Financial Server">Access Financial Server</option>
-        <option value="Access HR Database">Access HR Database</option>
-        <option value="Access Payroll DB">Access Payroll DB</option>
+        <option value="System Backup">System Backup</option>
+        <option value="Error Log Review">Error Log Review</option>
+        <option value="Configuration Update">Configuration Update</option>
       </select>
     </div>
   );

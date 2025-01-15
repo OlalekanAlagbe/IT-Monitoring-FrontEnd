@@ -6,7 +6,7 @@ interface AnalyticsProps {
   data: AccessLog[];
 }
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
+const COLORS = ['#FF2400', '#FF5500', '#FFC107', '#FFF44F', '#B33C00'];
 
 export const Analytics: React.FC<AnalyticsProps> = ({ data }) => {
   // Calculate role distribution
