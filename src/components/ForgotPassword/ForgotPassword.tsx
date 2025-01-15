@@ -10,7 +10,7 @@ export default function ForgotPasswordC() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const BASE_URL = 'http://localhost:3000'; // Ensure 'http://' is present
+  const BASE_URL = 'https://it-monitoingbackend.onrender.com'; // Ensure 'http://' is present
 
 
   const handleSubmit = async (e: React.FormEvent) => {
