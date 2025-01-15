@@ -143,7 +143,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false); // Loading state
   const navigate = useNavigate();
-  const BASE_URL = 'http://localhost:3000';
+  const BASE_URL = 'https://it-monitoingbackend.onrender.com';
 
   // Handle login functionality
   const handleLogin = async (e) => {
