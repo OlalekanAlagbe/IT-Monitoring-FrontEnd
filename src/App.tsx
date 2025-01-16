@@ -58,7 +58,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: <Monitoring />,
         },
         {
           path: "/analytics",
@@ -73,8 +73,8 @@ function App() {
           element: <UserLog />,
         },
         {
-          path: "/monitoring",
-          element: <Monitoring />,
+          path: "/summary",
+          element: <Home />,
         },
         {
           path: "/alerts",

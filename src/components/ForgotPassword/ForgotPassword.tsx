@@ -10,7 +10,7 @@ export default function ForgotPasswordC() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const BASE_URL = 'http://localhost:3000'; // Ensure 'http://' is present
+  const BASE_URL = 'https://it-monitoingbackend.onrender.com'; // Ensure 'http://' is present
 
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -50,7 +50,7 @@ export default function ForgotPasswordC() {
   };
 
   return (
-    <div className="min-h-screen bg-[#DD4F05] flex items-center justify-center p-8">
+    <div style={{animation: 'slideInFromTop 0.5s ease-out',}} className="min-h-screen bg-[#DD4F05] flex items-center justify-center p-8">
       <div className="w-full max-w-5xl flex gap-8 items-center">
         <div className="bg-white rounded-lg shadow-lg p-10">
           <div className="text-center mb-8">

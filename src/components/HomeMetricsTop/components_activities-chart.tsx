@@ -50,11 +50,12 @@ export function ActivitiesChart({ metrics }: ActivitiesChartProps) {
               className={`border border-gray-300 ${
                 index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
               } hover:bg-gray-100`}
+              // style={{ height: '48px' }}
             >
-              <td className="py-2 px-4 text-sm text-gray-800 border border-gray-300">
+              <td className="py-2 px-4 text-sm text-gray-800 border border-gray-300 whitespace-nowrap overflow-hidden text-ellipsis">
                 {item.metric}
               </td>
-              <td className="py-2 px-4 text-sm text-gray-800 text-right border border-gray-300">
+              <td className="py-2 px-4 text-sm text-gray-800 text-right border border-gray-300 whitespace-wrap overflow-hidden text-ellipsis">
                 {item.value}
               </td>
             </tr>

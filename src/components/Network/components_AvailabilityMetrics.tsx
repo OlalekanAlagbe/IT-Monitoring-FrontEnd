@@ -59,7 +59,23 @@ const AvailabilityMetrics: React.FC<AvailabilityMetricsProps> = ({ data }) => {
   const downtime = (100 - uptime).toFixed(2); // Calculate downtime percentage
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
+    <div
+      style={{
+        backgroundColor: 'white',
+        padding: '24px', // p-6
+        borderRadius: '8px', // rounded-lg
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)', // shadow-md
+        transition: 'all 0.3s ease-in-out', // transition-all duration-300
+        transform: 'scale(1)', // Initial scale
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'scale(1.03)'; // hover:scale-105
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'scale(1)'; // Reset on mouse leave
+      }}
+      className="bg-white p-6 rounded-lg shadow-md"
+      >
       <h2 className="text-sm font-semibold text-gray-800 mb-4 flex items-center space-x-2">
         <BarChart className="w-4 h-4 text-teal-500" /> {/* Adjust size as needed */}
         <span>Branch Availability Metrics</span>

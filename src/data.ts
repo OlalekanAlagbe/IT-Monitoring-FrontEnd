@@ -4,17 +4,12 @@ export const menu = [
     title: "main",
     listItems: [
       {
-        id: 1,
-        title: "Dashboard",
-        url: "/",
-        icon: "iconDashboard.png",
-      },
-      {
         id: 2,
         title: "Server Monitoring",
-        url: "/monitoring",
+        url: "/",
         icon: "iconMonitoring.png",
       },
+    
       {
         id: 5,
         title: "Network Monitoring",
@@ -71,6 +66,12 @@ export const menu = [
     id: 5,
     title: "analytics",
     listItems: [
+      {
+        id: 1,
+        title: "Summary",
+        url: "/summary",
+        icon: "iconDashboard.png",
+      },
       {
         id: 1,
         title: "Settings",

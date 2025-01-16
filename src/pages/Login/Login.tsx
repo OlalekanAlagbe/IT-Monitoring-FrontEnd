@@ -143,7 +143,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false); // Loading state
   const navigate = useNavigate();
-  const BASE_URL = 'http://localhost:3000';
+  const BASE_URL = 'https://it-monitoingbackend.onrender.com';
 
   // Handle login functionality
   const handleLogin = async (e) => {
@@ -192,8 +192,10 @@ const Login = () => {
     }
   }, [navigate]);
 
+  
+
   return (
-    <div className="login-container">
+    <div style={{animation: 'slideInFromTop 0.5s ease-out',}} className="login-container">
       <ToastContainer position="top-right" autoClose={2000} /> {/* React Toast container */}
       <div className="second-login-container">
         <div className="login-image-container flex items-center justify-center h-full">

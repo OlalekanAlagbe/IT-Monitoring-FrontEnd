@@ -33,7 +33,7 @@ const BandwidthChart: React.FC<BandwidthChartProps> = ({ data }) => {
             </span>
         </div>
       </div>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={300} style={{ zIndex: 1, position: 'relative' }}>
         <LineChart data={data}>
           <XAxis
             dataKey="timestamp"

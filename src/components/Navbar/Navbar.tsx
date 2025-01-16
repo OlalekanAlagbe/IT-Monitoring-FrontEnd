@@ -82,7 +82,7 @@ import React, { useState, useEffect } from 'react';
 import { Search, Sun, Moon, Cloud } from 'lucide-react';
 import './Navbar.css';
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://it-monitoingbackend.onrender.com';
 
 const Navbar = () => {
   const [user, setUser] = useState({ name: '' });
@@ -126,7 +126,7 @@ const Navbar = () => {
   const greeting = getGreeting();
 
   return (
-    <header className="bg-white fixed top-0 left-0 w-full text-black flex items-center justify-between px-4 py-5 border-b">
+    <header style={{animation: 'slideInFromTop 0.5s ease-out',}} className="bg-white fixed top-0 left-0 w-full text-black flex items-center justify-between px-4 py-5 border-b">
       <div className="text-lg font-medium">
         {/* Your logo or other content here */}
       </div>

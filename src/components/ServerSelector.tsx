@@ -11,7 +11,7 @@ interface ServerSelectorProps {
 
 export function ServerSelector({ servers, selectedServer, onServerChange ,isLoading}: ServerSelectorProps) {
   return (
-    <div className="flex items-center space-x-4 mb-6">
+    <div  style={{ animation: 'slideInFromTop 0.5s ease-out',}} className="flex items-center space-x-4 mb-6">
       <div className="flex items-center">
         <ServerIcon color='black' className="w-5 h-5 mr-2" />
         <select

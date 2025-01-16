@@ -261,7 +261,23 @@ const DeviceHealth: React.FC<DeviceHealthProps> = ({}) => {
   const COLORS = ['#DD4F05', '#00C49F'] // #DD4F05 for Used, #00C49F for Free
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md">
+    <div 
+      style={{
+        backgroundColor: 'white',
+        padding: '24px', // p-6
+        borderRadius: '8px', // rounded-lg
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)', // shadow-md
+        transition: 'all 0.3s ease-in-out', // transition-all duration-300
+        transform: 'scale(1)', // Initial scale
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'scale(1.03)'; // hover:scale-105
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'scale(1)'; // Reset on mouse leave
+      }}
+      className="bg-white p-4 rounded-lg shadow-md"
+    >
       <div className="flex justify-between items-center mb-4">
         <button
           onClick={handlePrevious}

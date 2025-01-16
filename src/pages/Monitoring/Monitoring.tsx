@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Dashboard } from '../../components/Dashboard'
 import { Toaster } from 'react-hot-toast'
+import { Loader2 } from 'lucide-react';
 
 const Monitoring = () => {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+    // Simulate a 400ms delay before rendering the content
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 300);
+
+      return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoading) {
+      return (
+        <div className="mt-5 flex items-start justify-center h-screen space-x-3">
+        <Loader2 className="animate-spin ml-2 h-4 w-4 text-gray-500" />
+        <p className="text-gray-500 text-sm font-medium align-middle">Loading...</p>
+      </div>
+      );
+    }
+
+    
   return (
     <div className='text-black'>
       <Dashboard />

@@ -581,30 +581,6 @@ const Dashboard: React.FC<DashboardProps> = ({ data }) => {
         </>
       )}
 
-      {/* ISP-Branch Summary Table */}
-      <div className="col-span-full">
-        <h2 className="text-sm font-semibold mb-4">ISP-Branch Summary</h2>
-        <table className="w-full border-collapse border border-gray-300">
-          <thead>
-            <tr className="bg-[#DD4F05] text-white">
-              <th className="p-2 border border-gray-300">ISP</th>
-              <th className="p-2 border border-gray-300">Branches</th>
-            </tr>
-          </thead>
-          <tbody>
-            {isps.map((isp) => (
-              <tr key={isp.name}>
-                <td className="p-2 border border-gray-300">{isp.name}</td>
-                <td className="p-2 border border-gray-300">
-                  {gtbBranches
-                    .filter((_, index) => branchToISP[index] === isp.name)
-                    .join(', ')}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
     </div>
   );
 };

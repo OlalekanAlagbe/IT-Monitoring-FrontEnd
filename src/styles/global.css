@@ -82,3 +82,17 @@ a {
     margin-left: 0; /* Remove margin on small screens */
   }
 }
+
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-40px); /* Start further up for a more dramatic effect */
+    opacity: 0; /* Start fully transparent */
+  }
+  60% {
+    opacity: 0.8; /* Partially fade in halfway through */
+  }
+  100% {
+    transform: translateY(0); /* End at the original position */
+    opacity: 1; /* Fully visible */
+  }
+}

@@ -19,13 +19,19 @@ const TrafficMetrics: React.FC<TrafficMetricsProps> = ({ data }) => {
     <div className="bg-white p-4 rounded shadow">
       <h2 className="text-sm font-semibold mb-4 flex items-center"><Activity className="w-5 h-5 text-teal-500 mr-2" />Traffic Metrics</h2>
       <ResponsiveContainer width="100%" height={300}>
-        <BarChart data={topTalkers}>
-         
-          <XAxis dataKey="source_ip" tick={{ fontSize: 12, fontWeight: 'bold'}} angle={-40} textAnchor="end" interval={0} />
+        <BarChart data={topTalkers} margin={{ top: 20, right: 30, left: 20, bottom: 50 }}>
+          <XAxis 
+            dataKey="source_ip" 
+            tick={{ fontSize: 10, fontWeight: 'bold'}} 
+            angle={-30} 
+            textAnchor="end" 
+            interval={0} 
+            label={{ value: "Router's byte sent", position: 'bottom', offset: 20 }} 
+          />
           <YAxis tick={{ fontSize: 12, fontWeight: 'bold'}} />
           <Tooltip />
-          <Legend />
-          <Bar dataKey="bytes_sent" fill="#DD4F05"  barSize={60} radius={[5, 5, 0, 0]} activeBar={false} />
+          {/* <Legend  /> */}
+          <Bar dataKey="bytes_sent" fill="#DD4F05" barSize={60} radius={[5, 5, 0, 0]} activeBar={false} />
         </BarChart>
       </ResponsiveContainer>
     </div>

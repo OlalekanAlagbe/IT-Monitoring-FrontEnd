@@ -1,14 +1,21 @@
-
 import React, { useState } from 'react'
 import { AlertCircle, AlertTriangle, Clock } from 'lucide-react'
 
 export default function AlertDashboard() {
   const [selectedAlert, setSelectedAlert] = useState(alerts[0])
+  const [resolvedAlerts, setResolvedAlerts] = useState<Record<number, boolean>>({}) // Track resolved state for each alert
+
+  const handleResolve = (alertId: number) => {
+    setResolvedAlerts((prev) => ({
+      ...prev,
+      [alertId]: true, // Mark the alert as resolved
+    }))
+  }
 
   return (
     <div className="flex h-screen bg-gray-50">
       {/* Alert List */}
-      <div className="w-[450px] border-r bg-white p-4">
+      <div style={{ animation: 'slideInFromTop 0.5s ease-out' }} className="w-[450px] border-r bg-white p-4">
         <div className="space-y-4">
           <div className="flex items-center space-x-2">
             <input
@@ -25,85 +32,81 @@ export default function AlertDashboard() {
               ≡
             </CustomButton>
           </div>
-          <div className="text-sm text-gray-500">
-          
-          </div>
+          <div className="text-sm text-gray-500"></div>
           <CustomScrollArea className="h-[calc(100vh-180px)]">
-          <div className="space-y-2">
-                 {alerts.map((alert) => (
-                            <div
-                                key={alert.id}
-                                className={`flex items-center justify-between rounded-lg border p-4 cursor-pointer transition duration-200 ${
-                                    selectedAlert?.id === alert.id
-                                      ? 'bg-gray-100 shadow-md border-gray-300'
-                                      : 'hover:bg-gray-50'
-                                  }`}
-                                onClick={() => setSelectedAlert(alert)}
-                            >
-                                {/* Left side: Alert title and severity icon */}
-                                <div className="flex items-center space-x-4">
-                                    <SeverityIcon severity={alert.severity} />
-                                    <div className='w-full'>
-                                        {/* Title */}
-                                        <span className="text-sm block mb-2">{alert.title}</span>
+            <div className="space-y-2">
+              {alerts.map((alert) => (
+                <div
+                  key={alert.id}
+                  className={`flex items-center justify-between rounded-lg border p-4 cursor-pointer transition duration-200 ${
+                    selectedAlert?.id === alert.id
+                      ? 'bg-gray-100 shadow-md border-gray-300'
+                      : 'hover:bg-gray-50'
+                  }`}
+                  onClick={() => setSelectedAlert(alert)}
+                >
+                  {/* Left side: Alert title and severity icon */}
+                  <div className="flex items-center space-x-4">
+                    <SeverityIcon severity={alert.severity} />
+                    <div className="w-full">
+                      {/* Title */}
+                      <span className="text-sm block mb-2">{alert.title}</span>
 
-                                        {/* Alert button and timestamp */}
-                                        <div className="w-full flex items-center space-x-4 text-sm text-gray-500">
-                                            <span
-                                                 className={`text-white text-sm font-medium px-3 py-[2px] rounded-full cursor-pointer ${
-                                                    alert.severity === "critical"
-                                                      ? "bg-red-500 hover:bg-red-600"
-                                                      : alert.severity === "warning"
-                                                      ? "bg-yellow-500 hover:bg-yellow-600"
-                                                      : "bg-[#599ED0] hover:bg-[#599ED0]-600"
-                                                  }`}
-                                            >
-                                                {alert.severity.charAt(0).toUpperCase() + alert.severity.slice(1)}
-                                            </span>
-                                            <span>{alert.timestamp}</span>
-                                        </div>
-                                    </div>
-                                </div>
+                      {/* Alert button and timestamp */}
+                      <div className="w-full flex items-center space-x-4 text-sm text-gray-500">
+                        <span
+                          className={`text-white text-sm font-medium px-3 py-[2px] rounded-full cursor-pointer ${
+                            alert.severity === "critical"
+                              ? "bg-red-500 hover:bg-red-600"
+                              : alert.severity === "warning"
+                              ? "bg-yellow-500 hover:bg-yellow-600"
+                              : "bg-[#599ED0] hover:bg-[#599ED0]-600"
+                          }`}
+                        >
+                          {alert.severity.charAt(0).toUpperCase() + alert.severity.slice(1)}
+                        </span>
+                        <span>{alert.timestamp}</span>
+                      </div>
+                    </div>
+                  </div>
 
-                                {/* Right side: Checkbox */}
-                                <CustomCheckbox />
-                             </div>
-))}
-          </div>
+                  {/* Right side: Checkbox */}
+                  <CustomCheckbox />
+                </div>
+              ))}
+            </div>
           </CustomScrollArea>
         </div>
       </div>
 
       {/* Alert Details */}
-      <div className="flex-1 p-6 transition duration-200">
+      <div style={{ animation: 'slideInFromTop 0.5s ease-out' }} className="flex-1 p-6 transition duration-200">
         <div className="rounded-lg border bg-white shadow-sm">
           <div className="border-b p-6">
             <div className="space-y-1">
-              <h2 className="text-2xl font-semibold">
-                {selectedAlert.title}
-              </h2>
+              <h2 className="text-lg font-semibold">{selectedAlert.title}</h2>
               <CustomBadge variant={selectedAlert.severity}>
                 {selectedAlert.severity.charAt(0).toUpperCase() + selectedAlert.severity.slice(1)}
               </CustomBadge>
-              <div className="text-sm text-gray-500">
-                {selectedAlert.timestamp}
-              </div>
+              <div className="text-sm text-gray-500">{selectedAlert.timestamp}</div>
             </div>
           </div>
           <div className="space-y-6 p-6">
             {selectedAlert.content}
 
-            {/* <div className="flex space-x-2 pt-4">
-              <CustomButton variant="destructive">
-                Investigate
+            <div className="flex space-x-2 pt-4">
+              <CustomButton
+                variant={resolvedAlerts[selectedAlert.id] ? "default" : "secondary"}
+                onClick={() => handleResolve(selectedAlert.id)}
+              >
+                {resolvedAlerts[selectedAlert.id] ? "Resolved" : "Resolve"}
               </CustomButton>
-              <CustomButton variant="default">
-                Respond
-              </CustomButton>
-              <CustomButton variant="secondary">
-                Acknowledge
-              </CustomButton>
-            </div> */}
+              {resolvedAlerts[selectedAlert.id] && (
+                <div className="text-green-500 text-sm ml-2">
+                  Alert resolved successfully!
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -154,7 +157,7 @@ function CustomButton({ children, variant = "default", className = "", ...props 
 function CustomCheckbox() {
   const [isChecked, setIsChecked] = useState(false)
   return (
-    <div 
+    <div
       className={`w-5 h-5 border-2 rounded flex items-center justify-center cursor-pointer ${isChecked ? 'bg-blue-500 border-blue-500' : 'border-gray-300'}`}
       onClick={() => setIsChecked(!isChecked)}
     >
@@ -175,50 +178,6 @@ function CustomScrollArea({ children, className }: { children: React.ReactNode, 
   )
 }
 
-// const alerts = [
-//   {
-//     id: 1,
-//     title: "High CPU Usage on Database Server 01",
-//     severity: "critical" as const,
-//     timestamp: "2024-12-18 10:00 AM"
-//   },
-//   {
-//     id: 2,
-//     title: "Unauthorized Access Attempt on File Server",
-//     severity: "warning" as const,
-//     timestamp: "2024-12-18 10:00 AM"
-//   },
-//   {
-//     id: 3,
-//     title: "ERR-901 on ATM Server",
-//     severity: "critical" as const,
-//     timestamp: "2024-12-18 10:00 AM"
-//   },
-//   {
-//     id: 4,
-//     title: "Disk Space Warning",
-//     severity: "warning" as const,
-//     timestamp: "2024-12-18 10:00 AM"
-//   },
-//   {
-//     id: 5,
-//     title: "Configuration Update",
-//     severity: "pending" as const,
-//     timestamp: "2024-12-18 10:00 AM"
-//   },
-//   {
-//     id: 6,
-//     title: "Failed Login Attempt",
-//     severity: "warning" as const,
-//     timestamp: "2024-12-18 10:00 AM"
-//   },
-//   {
-//     id: 7,
-//     title: "Failed Login Attempt",
-//     severity: "pending" as const,
-//     timestamp: "2024-12-18 10:00 AM"
-//   }
-// ]
 
 const alerts = [
     {

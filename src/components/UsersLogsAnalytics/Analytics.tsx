@@ -6,7 +6,7 @@ interface AnalyticsProps {
   data: AccessLog[];
 }
 
-const COLORS = ['#FF2400', '#FF5500', '#FFC107', '#FFF44F', '#B33C00'];
+const COLORS = ['#800020', '#FF5500', '#FFC107', '#DAA520', '#B33C00'];
 
 export const Analytics: React.FC<AnalyticsProps> = ({ data }) => {
   // Calculate role distribution
@@ -64,7 +64,7 @@ export const Analytics: React.FC<AnalyticsProps> = ({ data }) => {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={barData}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" angle={-45} textAnchor="end" height={60} tick={{ fontSize: 7 }} />
+              <XAxis dataKey="name" angle={-45} textAnchor="end" height={60} tick={{ fontSize: 9 }} />
               <YAxis tick={{ fontSize: 10 }} />
               <Tooltip />
               <Bar dataKey="count" fill="#dd4f05" radius={[4, 4, 0, 0]} />

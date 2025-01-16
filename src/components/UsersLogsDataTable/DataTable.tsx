@@ -49,7 +49,7 @@ export const DataTable: React.FC<DataTableProps> = ({
                   {format(new Date(log.timestamp), 'HH:mm:ss')}
                 </td>
                 <td className="px-4 py-2 text-sm text-gray-900">
-                  {log.userId}
+                  {log.userName}
                 </td>
                 <td className="px-4 py-2 text-sm text-gray-500">
                   {log.role}

@@ -7,7 +7,7 @@ import { Modal } from '../../components/UsersLogsModal/Modal';
 import { useData } from '../../context/showContext';
 
 // import { mockData } from '../../rawData/mockData';
-import { Activity, AlertCircle, CheckCircle, Lock, Mail, RefreshCw, User } from 'lucide-react';
+import { Activity, AlertCircle, CheckCircle, Loader2, Lock, Mail, RefreshCw, User } from 'lucide-react';
 import { AccessLog } from '../../types/AccessLog';
 
 
@@ -21,7 +21,7 @@ const UserLog = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [user, setUser] = useState(null);
-    const BASE_URL = 'http://localhost:3000'; // Ensure 'http://' is present
+    const BASE_URL = 'https://it-monitoingbackend.onrender.com'; // Ensure 'http://' is present
   
     // Fetch user data to determine if the user is an admin
     useEffect(() => {
@@ -189,8 +189,28 @@ const UserLog = () => {
     setCurrentPage(1);
   };
 
+  const [isLoadings, setIsLoadings] = useState(true);
+
+    // Simulate a 400ms delay before rendering the content
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoadings(false);
+      }, 300);
+
+      return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoadings) {
+      return (
+        <div className="mt-5 flex items-start justify-center h-screen space-x-3">
+        <Loader2 className="animate-spin ml-2 h-4 w-4 text-gray-500" />
+        <p className="text-gray-500 text-sm font-medium align-middle">Loading...</p>
+      </div>
+      );
+    }
+
   return (
-    <div className="min-h-screen py-4">
+    <div style={{animation: 'slideInFromTop 0.5s ease-out',}} className="min-h-screen py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center mb-4">
           <Activity className="h-6 w-6 text-black mr-2" />

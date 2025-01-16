@@ -97,11 +97,11 @@ export function generateSyntheticData(): BranchData[] {
           memory_usage_percentage: parseFloat((40 + Math.random() * 40).toFixed(2)), // 40-80%
           interface_status: Math.random() > 0.5 ? 'up' : 'down',
           top_talkers: [
-            { source_ip: '192.168.1.10', bytes_sent: parseFloat((Math.random() * 1000000).toFixed(2)) },
-            { source_ip: '192.168.1.20', bytes_sent: parseFloat((Math.random() * 1000000).toFixed(2)) },
-            { source_ip: '192.168.1.30', bytes_sent: parseFloat((Math.random() * 1000000).toFixed(2)) },
-            { source_ip: '192.168.1.40', bytes_sent: parseFloat((Math.random() * 1000000).toFixed(2)) },
-            { source_ip: '192.168.1.50', bytes_sent: parseFloat((Math.random() * 1000000).toFixed(2)) },
+            { source_ip: 'Router one', bytes_sent: parseFloat((Math.random() * 1000000).toFixed(2)) },
+            { source_ip: 'Router two', bytes_sent: parseFloat((Math.random() * 1000000).toFixed(2)) },
+            { source_ip: 'Router three', bytes_sent: parseFloat((Math.random() * 1000000).toFixed(2)) },
+            { source_ip: 'Router four', bytes_sent: parseFloat((Math.random() * 1000000).toFixed(2)) },
+            { source_ip: 'Router five', bytes_sent: parseFloat((Math.random() * 1000000).toFixed(2)) },
           ],
           unauthorized_access_attempts: Math.floor(Math.random() * 10), // 0-9 attempts
           response_time_ms: Math.random() * 500, // 0-500ms

@@ -24,13 +24,13 @@ export function Dashboard() {
 
   return (
     <div className="p-6">
-      <div className="flex items-center justify-between mb-6">
+      <div style={{animation: 'slideInFromTop 0.5s ease-out',}} className="flex items-center justify-between mb-6">
         <div className="flex items-center">
           <Activity className="w-6 h-6 mr-2" />
           <h1 className="text-lg font-bold">Server Monitoring</h1>
         </div>
       </div>
-
+      
       <ServerSelector
         servers={servers}
         selectedServer={selectedServer}
@@ -44,7 +44,7 @@ export function Dashboard() {
           <Loader2 className="w-4 h-4 ml-2 animate-spin" />
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        <div style={{animation: 'slideInFromTop 0.5s ease-out',}} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           <LastUpdated />
           
           <MetricCard

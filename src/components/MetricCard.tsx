@@ -22,7 +22,7 @@ export function MetricCard({
   const maxValue = Math.ceil(Math.max(...data.map(d => d.value)) * 1.1); // Add 10% padding
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4">
+    <div  className="bg-white rounded-lg shadow-md p-4">
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-lg font-semibold">{title}</h3>
         {showResourceIndicator && currentValue !== undefined && (

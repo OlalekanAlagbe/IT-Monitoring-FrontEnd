@@ -11,7 +11,7 @@ interface ActiveAlertsProps {
 
 export function ActiveAlerts({ alerts }: ActiveAlertsProps) {
   return (
-    <div className="rounded-lg border bg-card p-4 shadow-sm max-h-96 lg:max-h-[620px] overflow-y-auto">
+    <div className="rounded-lg border bg-card p-4 shadow-sm max-h-96 lg:max-h-[670px] overflow-y-auto">
       <div className="mb-4">
         <h2 className="text-lg font-semibold">Active Alerts</h2>
       </div>

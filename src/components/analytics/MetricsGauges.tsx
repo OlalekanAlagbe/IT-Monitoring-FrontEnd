@@ -68,12 +68,12 @@ export function MetricsGauges({ stats }: MetricsGaugesProps) {
   if (!stats) return null;
 
   const metricLabels = {
-    requests: 'Average Requests',
-    responseTime: 'Average Response Time',
-    errors: 'Average Errors',
-    cpuUsage: 'Average CPU Usage',
-    memoryUsage: 'Average Memory Usage',
-    diskUsage: 'Average Disk Usage',
+    requests: 'Avg Requests',
+    responseTime: 'Avg Response Time',
+    errors: 'Avg Errors',
+    cpuUsage: 'Avg CPU Usage',
+    memoryUsage: 'Avg Memory Usage',
+    diskUsage: 'Avg Disk Usage',
   };
 
   return (
